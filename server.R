@@ -22,6 +22,23 @@ parser <<- new("Parser", world)
 #shiny server function 
 shinyServer(
   function(input, output){
- 
+    
+    observe({
+      
+      queryString <- sprintf('PREFIX dcterms: <http://purl.org/dc/terms/> 
+                       SELECT  ?c ?title
+                       WHERE {  ?c dcterms:title  ?title 
+                          Filter regex(?title, "%s", "i")
+                       }', input$user_search)
+      query <- new("Query", world, queryString, base_uri=NULL, query_language="sparql", query_uri=NULL)
+      queryResult <- executeQuery(query, model)
+      result <- getNextResult(queryResult)
+      
+      output$search_result <- renderText({
+        as.character(result)
+      })
+      
+    })
+  
   
 })
