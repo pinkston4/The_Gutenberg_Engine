@@ -13,15 +13,15 @@ shinyUI(fluidPage(
   titlePanel("The Gutenberg Engine"),
   
   fluidRow(
-    column(8, wellPanel(
+    column(8, offset = 2, wellPanel(
       search_input("user_search", '', ''),
       actionButton("do", "Search")
     ))
   ),
   
   fluidRow(
-    column(6, wellPanel(
-      verbatimTextOutput("search_result")
+    column(8, offset = 2, div(
+      tableOutput("search_result")
     ))
   )
  

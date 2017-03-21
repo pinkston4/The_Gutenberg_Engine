@@ -20,8 +20,8 @@ shinyServer(
       query_gutenberg(as.character(input$user_search))
     })
     
-    output$search_result <- renderText({
-      as.character(the_query())
+    output$search_result <- renderTable({
+      the_query()
     })
 })
 
