@@ -22,14 +22,17 @@ query_gutenberg <- function(userinput){
                      }', userinput)
   query <- new("Query", world, queryString, base_uri=NULL, query_language="sparql", query_uri=NULL)
   queryResult <- executeQuery(query, model)
-  result <<- getNextResult(queryResult)
+  result <- getNextResult(queryResult)
   
   result_list <<- data.frame(matrix(result, nrow=1, ncol=2))
   
   counter <-1L
   
-  while(counter <= 10L | is.null(getNextResult(queryResult))){
+  while(counter < 10L){
     temp <- getNextResult(queryResult)
+    if(is.null(temp)){
+      break
+    }
     temp_frame <-data.frame(matrix(temp, nrow=1, ncol=2))
     result_list <<- rbind(result_list, temp_frame)
     counter <- counter + 1L
