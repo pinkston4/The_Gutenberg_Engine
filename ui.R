@@ -14,7 +14,8 @@ shinyUI(fluidPage(
   
   fluidRow(
     column(8, wellPanel(
-      search_input("user_search", '', '')
+      search_input("user_search", '', ''),
+      actionButton("do", "Search")
     ))
   ),
   
