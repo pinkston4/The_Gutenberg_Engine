@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Jim+Nightshade');
+
+#user_search {
+    width: 80%;
+}
+
+#title_bar {
+    margin-top: 15%;
+    margin-bottom: 5%;
+    font-family: 'Jim Nightshade', cursive;
+    font-size: 4em;
+    text-align: center;
+}

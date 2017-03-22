@@ -10,7 +10,15 @@ source("search.R")
 
 #Shiny UI builds layout for front end of shiny app
 shinyUI(fluidPage(
-  titlePanel("The Gutenberg Engine"),
+  
+  includeCSS("www/main.css"),
+  
+  fluidRow(
+    column(8, offset = 2, div(
+      id = "title_bar",
+      "The Gutenberg Engine"
+    ))
+  ),
   
   fluidRow(
     column(8, offset = 2, wellPanel(
