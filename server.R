@@ -22,6 +22,7 @@ shinyServer(
     
     output$search_result <- renderTable({
       the_query()
-    })
+    },
+    sanitize.text.function = function(x) x)
 })
 

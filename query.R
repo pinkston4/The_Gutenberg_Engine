@@ -23,16 +23,23 @@ query_gutenberg <- function(userinput){
   query <- new("Query", world, queryString, base_uri=NULL, query_language="sparql", query_uri=NULL)
   queryResult <- executeQuery(query, model)
   result <- getNextResult(queryResult)
-  
+  result[[2]] <- gsub('<', '', result[[2]])
+  result[[2]] <- gsub('>', '', result[[2]])
+  result[[2]] <- paste0("<button><a href='",  result[[2]], "' target='_blank'>Download_Page</a></button>")
   result_list <<- data.frame(matrix(result, nrow=1, ncol=2))
   
   counter <-1L
   
-  while(counter < 10L){
+  while(counter < 15L){
     temp <- getNextResult(queryResult)
+    temp[[2]] <- gsub('<', '', temp[[2]])
+    temp[[2]] <- gsub('>', '', temp[[2]])
+    temp[[2]] <- paste0("<button><a href='",  temp[[2]], "' target='_blank'>Download_Page</a></button")
+    
     if(is.null(temp)){
       break
     }
+    
     temp_frame <-data.frame(matrix(temp, nrow=1, ncol=2))
     result_list <<- rbind(result_list, temp_frame)
     counter <- counter + 1L
