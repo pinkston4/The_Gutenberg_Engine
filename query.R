@@ -30,7 +30,7 @@ query_gutenberg <- function(userinput){
   
   counter <-1L
   
-  while(counter < 15L){
+  while(counter < 10L){
     temp <- getNextResult(queryResult)
     temp[[2]] <- gsub('<', '', temp[[2]])
     temp[[2]] <- gsub('>', '', temp[[2]])
@@ -46,7 +46,7 @@ query_gutenberg <- function(userinput){
   }
   
   colnames(result_list)[1] <- "Title"
-  colnames(result_list)[2] <- "Link"
+  colnames(result_list)[2] <- "Download"
   
   return(result_list)
   
