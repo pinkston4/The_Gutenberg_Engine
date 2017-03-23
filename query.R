@@ -32,13 +32,14 @@ query_gutenberg <- function(userinput){
   
   while(counter < 10L){
     temp <- getNextResult(queryResult)
-    temp[[2]] <- gsub('<', '', temp[[2]])
-    temp[[2]] <- gsub('>', '', temp[[2]])
-    temp[[2]] <- paste0("<button><a href='",  temp[[2]], "' target='_blank'>Download_Page</a></button")
     
     if(is.null(temp)){
       break
     }
+    
+    temp[[2]] <- gsub('<', '', temp[[2]])
+    temp[[2]] <- gsub('>', '', temp[[2]])
+    temp[[2]] <- paste0("<button><a href='",  temp[[2]], "' target='_blank'>Download_Page</a></button")
     
     temp_frame <-data.frame(matrix(temp, nrow=1, ncol=2))
     result_list <<- rbind(result_list, temp_frame)
