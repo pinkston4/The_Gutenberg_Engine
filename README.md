@@ -3,7 +3,7 @@
 Project Gutenberg is a public archive of all works of literature, and some music, within th public domain. It has existed since 1971 and has so far amassed a collection of over 55,000 works. And is projected to almost double in size by the end of 2019, with the expiration of the Copyright Terms Extension Act of 1998. Unfortunately despite their size and beautiful collection, they are not that well known. And their website is not that easy to navigate, so even if their archive contained the work you were looking for, that does not mean you are guaranteed to find it.
 And that's where The Gutenberg Engine comes into play. The Gutenberg engine is a search tool for the archive. Allowing students, educators, or just people in general to access the archive and find what they need without having to jump through hoops.
 
-![alt tag](https://github.com/pinkston4/The_Gutenberg_Engine/blob/master/img/gutenbergEngine.png)
+![alt tag](https://github.com/pinkston4/The_Gutenberg_Engine/blob/master/img/gutenbergEnging.png)
 
 ## Set Up Locally
 1. Before you clone this repo you will need to install R (and preferably, but not required, Rstudio as well)
